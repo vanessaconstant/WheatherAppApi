@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style_wapp.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -48,13 +48,13 @@
                         <img src="../static/images/some_rain.png" alt="rain icon" class="weather-icon">
 
                         {%endif%}
-                        <p class="weather-temp">{{data.temp}}</p>
+                        <p class="weather-temp">{{data.temp}}&#176;</p>
 
                     </div>
                     <div class="additional-info">
                         <p class="wind">Wind: {{data.wind}}</p>
-                        <p class="max-temp">Max temp: {{data.max_temp}}</p>
-                        <p class="feels-like">Feels like: {{data.feels_like}}</p>
+                        <p class="max-temp">Max temp: {{data.max_temp}}&#176;</p>
+                        <p class="feels-like">Feels like: {{data.feels_like}}&#176;</p>
                        <p class="status">Sky: {{data.status}}</p>
                        
     
