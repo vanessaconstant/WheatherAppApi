@@ -28,7 +28,8 @@ def newyorkPage():
         'temp': round(result['main']['temp'], 1),
         'max_temp': round(result['main']['temp_max'], 1),
         'feels_like': round(result['main']['feels_like'], 1),
-        'wind': round(result['wind']['speed'], 1)
+        'wind': round(result['wind']['speed'], 1),
+        'name': result['name']
     }
 
     return render_template('weather.html', data=data)
@@ -50,7 +51,8 @@ def houstonPage():
         'temp': round(result['main']['temp'], 1),
         'max_temp': round(result['main']['temp_max'], 1),
         'feels_like': round(result['main']['feels_like'], 1),
-        'wind': round(result['wind']['speed'], 1)
+        'wind': round(result['wind']['speed'], 1),
+        'name': result['name']
     }
 
     return render_template('weather.html', data=data)
@@ -72,7 +74,8 @@ def miamiPage():
         'temp': round(result['main']['temp'], 1),
         'max_temp': round(result['main']['temp_max'], 1),
         'feels_like': round(result['main']['feels_like'], 1),
-        'wind': round(result['wind']['speed'], 1)
+        'wind': round(result['wind']['speed'], 1),
+        'name': result['name']
     }
 
     return render_template('weather.html', data=data)
@@ -88,14 +91,13 @@ def weatherPage():
 
     result = response.json()
 
-    print(result)
-
     data = {
 
         'status': result['weather'][0]['main'],
         'temp': round(result['main']['temp'], 1),
         'max_temp': round(result['main']['temp_max'], 1),
         'feels_like': round(result['main']['feels_like'], 1),
-        'wind': round(result['wind']['speed'], 1)
+        'wind': round(result['wind']['speed'], 1),
+        'name': result['name']
     }
     return render_template('weather.html', data=data)
