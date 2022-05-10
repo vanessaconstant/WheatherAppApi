@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <nav class="navbar">
+            <h1 class="nav_logo"><a href="/">WeatherPic</a></h1>
+            <ul class="nav_menu">
+                <li class="nav_menu_items"><a href="/newyork">New York</a></li>
+                <li class="nav_menu_items"><a href="/miami">Miami</a></li>
+                <li class="nav_menu_items"><a href="/houston">Houston</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero_section">
+
+            <form action="/weatherPage" method="post" class="weather_search">
+                <label for="city">Search a City:</label>
+                <input type="text" name="city" class="city">
+                <input type="submit" value="Search" id="search-btn">
+                
+                
+            </form>
+
+            <div class="search-result">
+
+                <p class="weather-result-header">Current Weather</p>
+
+                <div class="weather-result-box">
+                    <div class="weather-info">
+                        {%if (data.status == 'Clear'): %}
+
+                        <img src="../static/images/some_sun.png" alt="sunny icon" class="weather-icon">
+
+                        {%elif(data.status == 'Clouds'):%}
+
+                        <img src="../static/images/some_clouds.png" alt="Cloud icon" class="weather-icon">
+
+                        {%else:%}
+                        <img src="../static/images/some_rain.png" alt="rain icon" class="weather-icon">
+
+                        {%endif%}
+                        <p class="weather-temp">{{data.temp}}</p>
+
+                    </div>
+                    <div class="additional-info">
+                        <p class="wind">Wind: {{data.wind}}</p>
+                        <p class="max-temp">Max temp: {{data.max_temp}}</p>
+                        <p class="feels-like">Feels like: {{data.feels_like}}</p>
+                       <p class="status">Air quality: {{data.status}}</p>
+                       
+    
+                    </div>
+
+                </div>
+                
+            </div>
+            
+            
+
+        </div>
+    </div>
+</body>
+</html>
